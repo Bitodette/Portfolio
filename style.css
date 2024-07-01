@@ -354,7 +354,7 @@ main {
    }
 
    .container {
-      margin: 200px auto;
+      margin: 200px auto 100px auto;
    }
 
    .loading-bar {
@@ -403,7 +403,7 @@ main {
 
    .contact-me {
       font-size: 13px;
-      margin: 90px auto;
+      margin: 90px auto 40px auto;
    }
 
    .contact-links img {
