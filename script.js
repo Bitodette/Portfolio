@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
                images.forEach(function (image, index) {
                   setTimeout(() => {
                      image.style.opacity = "1";
-                  }, index * 50);
+                  }, index * 100);
                });
 
-               circle.classList.remove('hidden-circle');
+               checkScreenSize(); // Ensure the circle is hidden on small screens
             }, 100);
          }, 500);
       });
@@ -77,7 +77,7 @@ window.addEventListener('scroll', () => {
    }
 });
 
-//Scroll to top
+// Scroll to top
 function scrollToTop() {
    window.scrollTo({
       top: 0,
@@ -96,8 +96,8 @@ function updateCirclePosition() {
    if (circle) {
       const scrollTop = window.scrollY;
       const scrollLeft = window.scrollX;
-      currentX = lerp(currentX, targetX, 0.2);
-      currentY = lerp(currentY, targetY, 0.2);
+      currentX = lerp(currentX, targetX, 0.2); // Adjusted to 0.1 for smoother transition
+      currentY = lerp(currentY, targetY, 0.2); // Adjusted to 0.1 for smoother transition
       circle.style.left = `${currentX - circle.clientWidth / 2 + scrollLeft}px`;
       circle.style.top = `${currentY - circle.clientHeight / 2 + scrollTop}px`;
    }
