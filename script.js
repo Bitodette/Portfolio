@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       progressNumber.textContent = percentage;
       percentage++;
       if (percentage <= 100) {
-         setTimeout(updateProgress, 12);
+         setTimeout(updateProgress, 13);
       }
    }
 
@@ -27,6 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
       image.style.opacity = "0";
       image.style.transition = "opacity 0.5s ease";
    });
+
+   function showAllImages(images) {
+      requestAnimationFrame(() => {
+         images.forEach(image => {
+            image.style.opacity = "1";
+         });
+      });
+   }
 
    setTimeout(function () {
       var loadingBar = document.querySelector(".loading-bar");
@@ -52,16 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
                document.body.classList.remove("loading");
                document.body.style.overflow = "auto";
 
-               // show image one by one
-               images.forEach(function (image, index) {
-                  setTimeout(() => {
-                     image.style.opacity = "1";
-                  }, index * 100);
-               });
-
                checkScreenSize(); // Ensure the circle is hidden on small screens
-            }, 100);
-         }, 500);
+
+               // Tampilkan semua gambar secara bersamaan
+               showAllImages(Array.from(images));
+            }, 0);
+         }, 0);
       });
    }, 2500);
 });
@@ -85,7 +89,7 @@ function scrollToTop() {
    });
 }
 
-// Circle Animation
+// circle
 let targetX = 0;
 let targetY = 0;
 let currentX = 0;
@@ -96,8 +100,8 @@ function updateCirclePosition() {
    if (circle) {
       const scrollTop = window.scrollY;
       const scrollLeft = window.scrollX;
-      currentX = lerp(currentX, targetX, 0.2); // Adjusted to 0.1 for smoother transition
-      currentY = lerp(currentY, targetY, 0.2); // Adjusted to 0.1 for smoother transition
+      currentX = lerp(currentX, targetX, 0.2);
+      currentY = lerp(currentY, targetY, 0.2);
       circle.style.left = `${currentX - circle.clientWidth / 2 + scrollLeft}px`;
       circle.style.top = `${currentY - circle.clientHeight / 2 + scrollTop}px`;
    }
@@ -123,7 +127,6 @@ function animate() {
 
 animate();
 
-// Hide circle on screens with max width of 480px
 function checkScreenSize() {
    const circle = document.getElementById('circle');
    if (window.innerWidth <= 480) {
@@ -132,9 +135,15 @@ function checkScreenSize() {
       circle.classList.remove('hidden-circle');
    }
 }
-
-// Initial check
 checkScreenSize();
-
-// Listen for window resize events
 window.addEventListener('resize', checkScreenSize);
+
+function scrollToContactLinks() {
+   var contactLinksElement = document.querySelector('.contact-links');
+
+   if (contactLinksElement) {
+      contactLinksElement.scrollIntoView({
+         behavior: 'smooth'
+      });
+   }
+}
