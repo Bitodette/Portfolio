@@ -1,5 +1,9 @@
 body {
    transition: background-color 0.5s ease;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
 
 body::-webkit-scrollbar {
