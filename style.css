@@ -322,6 +322,7 @@ body.changing-background {
    color: #000;
    cursor: pointer;
    width: fit-content;
+   font-weight: 500;
 }
 
 .about-desc p {
@@ -423,12 +424,16 @@ body.changing-background {
       width: 0.3vw;
    }
 
+   .container {
+      margin: 15rem auto 7rem auto;
+   }
+
    .name,
    .projects,
    .about,
    .skills {
       font-size: 2rem;
-      margin: 1.9 rem 0;
+      margin: 1.25 auto;
    }
 
    .title {
@@ -447,12 +452,16 @@ body.changing-background {
 
    .line-down {
       width: 0.5vw;
-      margin-bottom: 10.625rem;
+      margin-bottom: 6rem;
+   }
+
+   .projects-container a {
+      font-size: 0.6rem;
    }
 
    .projects-container a img {
       width: 10rem;
-      margin: 0.7rem auto;
+      margin: 0.2rem auto;
    }
 
    .skills-icon {
@@ -461,17 +470,22 @@ body.changing-background {
       grid-gap: 0.3125rem;
    }
 
+   .skills-icon .icon {
+      font-size: 0.6rem;
+   }
+
    .contact-me {
       font-size: 0.8125rem;
       margin: 5.625rem auto 2.5rem auto;
    }
 
    .contact-links img {
-      width: 1.875rem;
+      margin: 0 1.25rem;
    }
 
    .button-contact {
       padding: 0.8em 1.5em;
+      border: 1.5px solid #000;
    }
 
    .button-container {
