@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
                document.body.classList.remove("loading");
                document.body.style.overflow = "auto";
 
-               checkScreenSize(); // Ensure the circle is hidden on small screens
+               checkScreenSize();
 
-               // Tampilkan semua gambar secara bersamaan
+               // show image
                showAllImages(Array.from(images));
             }, 0);
          }, 0);
